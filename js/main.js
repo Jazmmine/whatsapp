@@ -29,22 +29,25 @@ window.addEventListener("load", function(){
 				var hora = document.createElement("div");
 						hora.classList.add("time");
 						contenedorHora.appendChild(hora);
-						hora.innerHTML = obtenerTiempoActual();				
+						hora.innerHTML = obtenerTiempoActual();	
+				document.getElementById("mensajes").value = "";			
 		}			
-			
+		
 		});
 
 	var avatares = document.querySelectorAll(".w-recent-chats li .avatar");
 	for (var i = 0; i < avatares.length; i++) {
-		avatares[i].addEventListener("click", function(){
-			console.log("prueba");
-			var contenedorHeader = document.getElementById("avatar-header");
+		var elementoAvatares = avatares[i];
+		elementoAvatares.addEventListener("click", function(){
+			//console.log("prueba");
+			//var contenedorHeader = document.getElementById("avatar-header");
 			var imgHeader = document.getElementById("img-header");
-			var nombreHeader = document.getElementById("nombre-header");
-			var contenedorAvatar = document.querySelector(".w-contacts .w-recent-chats li .avatar");
-			var imgAvatar = contenedorAvatar.firstElementChild;
+			var nombreHeader = document.querySelector("#nombre-header");
+			// var nombreHeader = this.getElementById("nombre-header");
+			var imgAvatar = this.firstElementChild;
 			var textoAvatar = imgAvatar.nextElementSibling;
-
+				imgHeader.src = imgAvatar.src;
+				nombreHeader.textContent  = 	textoAvatar.textContent;			
 		});
 		
 	}
